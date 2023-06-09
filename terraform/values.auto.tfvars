@@ -2,8 +2,8 @@
 # ---------------- SES Variables Values -----------------------------
 // ==================================================================
 
-sender_email   = ""
-receiver_email = ""
+sender_email   = "khaledabdelfatah200@gmail.com"
+receiver_email = "220170085@fa-hists.edu.eg"
 
 // ==================================================================
 # ---------------- DynamoDb Variables Values ------------------------
@@ -16,12 +16,13 @@ dynamodb_table_name = "Jobs"
 // ==================================================================
 
 # 5:00 AM UTC = 8:00 AM Cairo-Time
-cron_expression = "cron(0 5 ? * * *)"
+# cron_expression = "cron(0 9 * * ? *)"
+cron_expression = "cron(*/1 * * * ? *)"
 
 // =============================================================
 # --------------------- Lambda Variables -----------------------
 // =============================================================
 
-region     = ""
-account_id = ""
+region     = "us-east-1"
+account_id = "850913618274"
 job_title  = "devops"

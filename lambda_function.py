@@ -69,7 +69,7 @@ def parse_career_pages(companies):
 
 
 def send_email(subject, body):
-    ses_client = boto3.client('ses', region_name='eu-south-1')
+    ses_client = boto3.client('ses', region_name='us-east-1')
     
     ses_client.send_email(
         Source=SENDER_EMAIL,
@@ -95,15 +95,17 @@ def format_email_body(results):
     
 def lambda_handler(event, context):
     companies = {
+        "Eventtum" : "http://eventumsolutions.com/careers/",
         "synapseanalytics" : "https://synapseanalytics.recruitee.com/",
         "espace" : "https://espace.com.eg/jobs/",
-        "silicon-mind" : "https://silicon-mind.com/careers/",
-        "brightskies" : "https://brightskiesinc.com/careers/jobs"
+        "strypes" : "https://www.careers-page.com/strypes-group",
+        "Glassdoor" : "https://www.glassdoor.com/Job/egypt-devops-jobs-SRCH_IL.0,5_IN69_KO6,12.htm",
+        "Accenture" : "https://www.accenture.com/us-en/careers/explore-careers/area-of-interest/devops-careers"
     }
     
     results = parse_career_pages(companies)
     
-    subject = 'DevOps Results'
+    subject = 'AWS re/Start Project : Job Alerts - DevOps '
     body = format_email_body(results)
     
     for company_name, data in results.items():
